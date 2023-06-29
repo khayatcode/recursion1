@@ -2,19 +2,16 @@
 
 function sigma(num){
     var sum = 0
-    if(num <= 0){
-        return sum
-    } 
-    // Check if num is a string
-    else if(typeof num == "string"){
+
+    if(typeof num == "string"){
         return "Error: Input must be a number"
     }
-    else{
-        for(let i = 1; i <= num; i++){
-            sum += i
-        }
-        return sum
+    else if(num >= 1){
+        var intNum = Math.trunc(num)
+        var prevVal = sigma(intNum - 1)
+        sum = intNum + prevVal
     }
+    return sum
 }
 
 console.log("Test 1")
@@ -26,22 +23,20 @@ console.log(sigma(-1))
 console.log("Test 4")
 console.log(sigma("hello"))
 
+
 // Recursive Factorial
 
 function factorial(num){
     var sum = 1
-    if(num <= 0){
-        return 0
-    } 
-    else if(typeof num == "string"){
+    if(typeof num == "string"){
         return "Error: Input must be a number"
     }
-    else{
-        for(let i = 1; i <= num; i++){
-            sum *= i
-        }
-        return sum
+    else if(num >= 1) {
+        var intNum = Math.trunc(num)
+        var prevVal = factorial(num-1)
+        sum = intNum * prevVal
     }
+    return sum
 }
 
 console.log("Test 1")
